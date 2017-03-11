@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CE5BA41C-B2B1-4969-9665-F2A9ADE51FDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B932A95-8D88-4CFB-B103-163612AC358D}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AuthorizationAppASPNETCore", "src\AuthorizationAppASPNETCore\AuthorizationAppASPNETCore.xproj", "{A125502D-9C32-46EC-9F9F-590F0FDA336B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A125502D-9C32-46EC-9F9F-590F0FDA336B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A125502D-9C32-46EC-9F9F-590F0FDA336B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A125502D-9C32-46EC-9F9F-590F0FDA336B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A125502D-9C32-46EC-9F9F-590F0FDA336B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A125502D-9C32-46EC-9F9F-590F0FDA336B} = {CE5BA41C-B2B1-4969-9665-F2A9ADE51FDE}
+	EndGlobalSection
+EndGlobal
