@@ -7,7 +7,7 @@ namespace AuthorizationAppASPNETCore.Users
         London, Paris, Chicago
     }
 
-    public class AppUser : IdentityUser
+    public class AppUser : IdentityUser<string>
     {
         public Cities City { get; set; }
     }

@@ -18,10 +18,10 @@ namespace AuthorizationAppASPNETCore.Users.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public string EMail { get; set; }
-        [Required]
         public string Password { get; set; }
-        [Required]
+
+        public string EMail { get; set; }
+
         public bool RememberMe { get; set; }
     }
 

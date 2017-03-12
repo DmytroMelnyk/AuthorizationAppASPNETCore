@@ -7,7 +7,7 @@
 @Html.ValidationSummary()
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken();
+    @Html.AntiForgeryToken()
     <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
     <div class="form-group">
         <label>Name</label>
@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
         <label>Password</label>
-        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+        @Html.PasswordFor(x => Model.Password, new { @class = "form-control" })
     </div>
     <button class="btn btn-primary" type="submit">Log In</button>
 }

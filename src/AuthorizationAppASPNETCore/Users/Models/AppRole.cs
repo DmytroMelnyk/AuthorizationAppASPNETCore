@@ -2,7 +2,7 @@
 
 namespace AuthorizationAppASPNETCore.Users.Models
 {
-    public class AppRole : IdentityRole
+    public class AppRole : IdentityRole<string>
     {
         public AppRole()
         {

@@ -2,17 +2,18 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using AuthorizationAppASPNETCore.Users.Models;
 
 namespace AuthorizationAppASPNETCore.Users.Infrastructure
 {
-    public class AppRoleManager : RoleManager<AppUser>
+    public class AppRoleManager : RoleManager<AppRole>
     {
         public AppRoleManager(
-            IRoleStore<AppUser> store, 
-            IEnumerable<IRoleValidator<AppUser>> roleValidators, 
+            IRoleStore<AppRole> store, 
+            IEnumerable<IRoleValidator<AppRole>> roleValidators, 
             ILookupNormalizer keyNormalizer, 
             IdentityErrorDescriber errors, 
-            ILogger<RoleManager<AppUser>> logger, 
+            ILogger<RoleManager<AppRole>> logger, 
             IHttpContextAccessor contextAccessor) : 
                 base(store, roleValidators, keyNormalizer, errors, logger, contextAccessor)
         {

@@ -7,17 +7,20 @@ using AuthorizationAppASPNETCore.Users;
 using AuthorizationAppASPNETCore.Users.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using AuthorizationAppASPNETCore.Users.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AuthorizationAppASPNETCore.Controllers
 {
+    [Authorize(Roles = "Administrators")]
     public class RoleAdminController : Controller
     {
-        private readonly RoleManager<AppRole> _roleManager;
-        private readonly UserManager<AppUser> _userManager;
+        private readonly AppRoleManager _roleManager;
+        private readonly AppUserManager _userManager;
 
-        public RoleAdminController(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager)
+        public RoleAdminController(AppRoleManager roleManager, AppUserManager userManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
@@ -25,7 +28,7 @@ namespace AuthorizationAppASPNETCore.Controllers
 
         public ActionResult Index()
         {
-            return View((object)Tuple.Create(_roleManager.Roles, _userManager));
+            return View(Tuple.Create(_roleManager.Roles.AsEnumerable(), _userManager));
         }
 
         public ActionResult Create()

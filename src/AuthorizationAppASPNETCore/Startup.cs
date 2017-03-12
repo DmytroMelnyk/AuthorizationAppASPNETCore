@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using AuthorizationAppASPNETCore.Extensions;
+using AuthorizationAppASPNETCore.Users;
 
 namespace AuthorizationAppASPNETCore
 {
@@ -35,9 +37,14 @@ namespace AuthorizationAppASPNETCore
                 .AddDbContext<AppIdentityDbContext>(options => 
                     options.UseSqlServer(Configuration.GetConnectionString("Sql")));
 
-            services.AddIdentity<AppRole, IdentityRole>()
-                .AddEntityFrameworkStores<AppIdentityDbContext>()
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext, string>()
                 .AddDefaultTokenProviders();
+
+            services.AddTransient<AppRoleManager>();
+            services.AddTransient<AppUserManager>();
+
+            //services.AddOpenIddict<ApplicationUser, ApplicationRole, ApplicationDbContext>()
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -78,6 +85,8 @@ namespace AuthorizationAppASPNETCore
 
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
+                    //this will generate the db if it does not exist
+                    bool result = serviceScope.ServiceProvider.GetService<AppIdentityDbContext>().Database.EnsureCreated();
                     serviceScope.ServiceProvider.GetService<AppIdentityDbContext>().EnsureSeedData();
                 }
             }
@@ -86,6 +95,7 @@ namespace AuthorizationAppASPNETCore
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseIdentity();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

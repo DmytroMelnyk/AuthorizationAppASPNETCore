@@ -21,8 +21,7 @@
     "Microsoft.AspNetCore.Diagnostics": "1.1.1",
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.1.1",
     "Microsoft.EntityFrameworkCore": "1.1.1",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.1.1",
-    "EntityFramework.SqlServer": "7.0.0-beta8"
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.1.1"
   },
 
   "tools": {
@@ -42,6 +41,12 @@
   "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
+  },
+
+  "runtimes": {
+    "win7-x86": {
+      "#import": [ "win7", "win-x86" ]
+    }
   },
 
   "runtimeOptions": {

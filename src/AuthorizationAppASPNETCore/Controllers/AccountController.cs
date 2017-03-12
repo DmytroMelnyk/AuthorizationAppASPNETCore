@@ -42,7 +42,7 @@ namespace AuthorizationAppASPNETCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(details.EMail, details.Password, details.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(details.Name, details.Password, details.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     return Redirect(returnUrl);
